@@ -35,10 +35,11 @@ async def list_abstracts(abstract_id: Optional[str] = None):
     """
     with shelve.open("adb") as adb:
         if abstract_id:
-            abstract_body = adb[abstract_id]
-            if not abstract_body:
+            if abstract_id not in adb.keys():
                 raise HTTPException(status_code=404, detail="Item not found")
             else:
+                abstract_body = adb[abstract_id]
+
                 abstract = Abstract(abstract_id=abstract_id, abstract=abstract_body)
                 return abstract
         else:

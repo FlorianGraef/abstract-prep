@@ -1,7 +1,10 @@
-import re, string
+import os
+import re
 import shelve
-import sys, os
-from gensim.parsing.preprocessing import remove_stopwords, preprocess_string, strip_punctuation
+import string
+import sys
+
+from gensim.parsing.preprocessing import remove_stopwords
 
 
 def parse_file(file_path, db):
@@ -45,7 +48,7 @@ def preprocess_abs(abstract: str):
     abstract = remove_stopwords(abstract)
 
     # fast way to strip punctuation
-    abstract = abstract.translate(str.maketrans('', '', string.punctuation))
+    abstract = abstract.translate(str.maketrans("", "", string.punctuation))
     return abstract
 
 

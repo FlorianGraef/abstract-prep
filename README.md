@@ -59,7 +59,9 @@ Gets a list of all abstracts in the DB or, if the abstract_id parameter is provi
 This endpoint allows as well to post abstracts in the afore-mentioned format to persist them in the DB. The query parameter "preprocess" toggles stopword and punctuation removal.
 
 To populate a persisted shelve database file run:
+```
 python3 abstract_prep/cleaner.py /home/florian/Coding/abstract_test_data_file.txt
+```
 
 this will preprocess the textfile and persist the cleaned abstracts to the shelve database file in the project base directory.
 
